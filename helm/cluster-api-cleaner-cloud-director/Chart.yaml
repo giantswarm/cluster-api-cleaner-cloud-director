@@ -1,0 +1,11 @@
+name: cluster-api-cleaner-cloud-director
+version: [[ .Version ]]
+description: "Operator for cleaning leftover VCD resources of workload clusters"
+appVersion: "[[ .AppVersion ]]"
+home: "https://github.com/giantswarm/cluster-api-cleaner-cloud-director"
+apiVersion: v1
+annotations:
+  application.giantswarm.io/team: "rocket"
+  config.giantswarm.io/version: 1.x.x
+# todo:
+# icon: https://s.giantswarm.io/app-icons/cloud-director/1/light.svg
