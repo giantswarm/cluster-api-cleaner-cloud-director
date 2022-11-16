@@ -1,3 +1,8 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/giantswarm/cluster-api-cleaner-cloud-director/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/giantswarm/cluster-api-cleaner-cloud-director/tree/master)
+[![image@quay](https://quay.io/repository/giantswarm/cluster-api-cleaner-cloud-director/status "image@quay")](https://quay.io/repository/giantswarm/cluster-api-cleaner-cloud-director)
+[![docker.io pulls](https://img.shields.io/docker/pulls/giantswarm/cluster-api-cleaner-cloud-director.svg)](https://hub.docker.com/r/giantswarm/cluster-api-cleaner-cloud-director)
+[![License: MIT](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](https://opensource.org/licenses/Apache-2.0)
+
 # cluster-api-cleaner-cloud-director
 
 A helper operator for CAPVCD to delete resources created by apps in workload clusters.
