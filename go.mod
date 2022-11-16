@@ -6,11 +6,14 @@ require (
 	github.com/giantswarm/microerror v0.4.0
 	github.com/go-logr/logr v1.2.2
 	github.com/kr/pretty v0.3.0 // indirect
+	github.com/pkg/errors v0.9.1
+	github.com/vmware/cloud-provider-for-cloud-director v0.0.0-20221104192532-8946fef8b046
 	github.com/vmware/cluster-api-provider-cloud-director v0.0.0-20221104233019-99b9d0ca0b3f
 	go.uber.org/zap v1.19.1
 	golang.org/x/net v0.0.0-20220531201128-c960675eff93 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
+	k8s.io/api v0.24.1
 	k8s.io/apimachinery v0.24.1
 	k8s.io/client-go v0.24.1
 	sigs.k8s.io/cluster-api v1.1.4

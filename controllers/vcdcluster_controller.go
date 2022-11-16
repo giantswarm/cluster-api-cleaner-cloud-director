@@ -18,12 +18,11 @@ package controllers
 
 import (
 	"context"
-	"fmt"
 	"time"
 
 	"github.com/go-logr/logr"
-	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	capvcd "github.com/vmware/cluster-api-provider-cloud-director/api/v1beta1"
+	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	"sigs.k8s.io/cluster-api/util"
 	"sigs.k8s.io/cluster-api/util/annotations"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -35,6 +34,7 @@ import (
 
 	"github.com/giantswarm/cluster-api-cleaner-cloud-director/pkg/cleaner"
 	"github.com/giantswarm/cluster-api-cleaner-cloud-director/pkg/key"
+	"github.com/giantswarm/cluster-api-cleaner-cloud-director/pkg/vcd"
 )
 
 // VCDClusterReconciler reconciles a vcdCluster object
@@ -124,11 +124,15 @@ func (r *VCDClusterReconciler) reconcileDelete(ctx context.Context, log logr.Log
 		return ctrl.Result{}, nil
 	}
 
-	clusterTag := fmt.Sprintf("%s_%s_%s", key.ClusterTagPrefix, r.ManagementCluster, clusterName)
-	log.V(1).Info("Cleaning VCD resources with", "tag", clusterTag)
+	vcdClient, err := vcd.GetVCDClient(ctx, r.Client, vcdCluster, log)
+	if err != nil {
+		return ctrl.Result{}, nil
+	}
+
+	log.V(1).Info("Cleaning VCD resources belonging to cluster", "cluster", clusterName)
 	requeueForDeletion := false
 	for _, c := range r.Cleaners {
-		requeue, err := c.Clean(ctx, log, vcdCluster, clusterTag)
+		requeue, err := c.Clean(ctx, log, vcdClient, vcdCluster)
 		if err != nil {
 			return reconcile.Result{}, microerror.Mask(err)
 		}
