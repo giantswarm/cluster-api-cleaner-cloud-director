@@ -22,11 +22,11 @@ import (
 	"fmt"
 	"os"
 
+	capvcd "github.com/vmware/cluster-api-provider-cloud-director/api/v1beta1"
 	"go.uber.org/zap/zapcore"
 	"k8s.io/apimachinery/pkg/runtime"
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
-	capvcd "github.com/vmware/cluster-api-provider-cloud-director/api/v1beta1"
 	capi "sigs.k8s.io/cluster-api/api/v1beta1"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
@@ -99,7 +99,7 @@ func mainE(ctx context.Context) error {
 
 	cleaners := []cleaner.Cleaner{
 		cleaner.NewVolumeCleaner(mgr.GetClient()),
-		cleaner.NewLoadBalancerCleaner(mgr.GetClient()),
+		cleaner.NewVirtualServiceCleaner(mgr.GetClient()),
 	}
 
 	if err = (&controllers.VCDClusterReconciler{
