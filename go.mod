@@ -1,14 +1,14 @@
 module github.com/giantswarm/cluster-api-cleaner-cloud-director
 
-go 1.18
+go 1.19
 
 require (
 	github.com/giantswarm/microerror v0.4.0
-	github.com/go-logr/logr v1.2.2
+	github.com/go-logr/logr v1.2.3
 	github.com/pkg/errors v0.9.1
 	github.com/vmware/cloud-provider-for-cloud-director v0.0.0-20221104192532-8946fef8b046
-	github.com/vmware/cluster-api-provider-cloud-director v0.0.0-20221104233019-99b9d0ca0b3f
-	go.uber.org/zap v1.19.1
+	github.com/vmware/cluster-api-provider-cloud-director v0.0.0-20221116204107-d770e84e0176
+	go.uber.org/zap v1.23.0
 	k8s.io/api v0.24.1
 	k8s.io/apimachinery v0.24.1
 	k8s.io/client-go v0.24.1
@@ -94,7 +94,7 @@ replace (
 	github.com/containerd/containerd v1.5.9 => github.com/containerd/containerd v1.6.6
 	github.com/containerd/containerd v1.6.1 => github.com/containerd/containerd v1.6.6
 	github.com/containerd/imgcrypt v1.1.1 => github.com/containerd/imgcrypt v1.1.5
-	github.com/coreos/etcd => github.com/coreos/etcd v3.3.25+incompatible
+	github.com/coreos/etcd => github.com/coreos/etcd v3.3.27+incompatible
 	github.com/dgrijalva/jwt-go => github.com/dgrijalva/jwt-go/v4 v4.0.0-preview1
 	github.com/gogo/protobuf v1.3.1 => github.com/gogo/protobuf v1.3.2
 	github.com/gorilla/websocket v1.4.0 => github.com/gorilla/websocket v1.4.2
