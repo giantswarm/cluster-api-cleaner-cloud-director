@@ -37,6 +37,9 @@
     }
   ],
   "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
+  "constraints": {
+    "go": "1.18"
+  },
   "dependencyDashboard": true,
   "ignorePaths": [
     ".github/workflows/zz_generated.*",
