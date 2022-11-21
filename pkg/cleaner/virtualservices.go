@@ -40,7 +40,6 @@ func (lbc *VirtualServiceCleaner) Clean(ctx context.Context, log logr.Logger, vc
 	deleted := 0
 	for _, vSvc := range vSvcs {
 		svcName := vSvc.NsxtAlbVirtualService.Name
-		//todo: pools
 		// if the name of the virtual service contains the cluster's infraId, delete this virtual service
 		if strings.Contains(svcName, infraId) {
 			log.Info(fmt.Sprintf("deleting virtual service: %s", svcName))

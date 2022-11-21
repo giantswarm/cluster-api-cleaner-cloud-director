@@ -100,6 +100,8 @@ func mainE(ctx context.Context) error {
 	cleaners := []cleaner.Cleaner{
 		cleaner.NewVolumeCleaner(mgr.GetClient()),
 		cleaner.NewVirtualServiceCleaner(mgr.GetClient()),
+		cleaner.NewLBPoolCleaner(mgr.GetClient()),
+		cleaner.NewDNATCleaner(mgr.GetClient()),
 	}
 
 	if err = (&controllers.VCDClusterReconciler{
