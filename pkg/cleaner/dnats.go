@@ -29,7 +29,22 @@ func (lbc *DNATCleaner) Clean(ctx context.Context, log logr.Logger, vcdClient *v
 	if err != nil {
 		return false, err
 	}
-	edgeNatRules, _, err := vcdClient.APIClient.EdgeGatewayNatRulesApi.GetNatRules(ctx, 128, gateway.GatewayRef.Id, c.Spec.Org, nil)
+	if err := vcdClient.RefreshBearerToken(); err != nil {
+		return false, err
+	}
+	org, err := vcdClient.VCDClient.GetOrgByName(vcdClient.ClusterOrgName)
+	if err != nil {
+		return false, microerror.Mask(err)
+	}
+	if org == nil || org.Org == nil {
+		return false, microerror.Mask(fmt.Errorf("obtained nil org when getting org by name [%s]", vcdClient.ClusterOrgName))
+	}
+	edgeNatRules, _, err := vcdClient.APIClient.EdgeGatewayNatRulesApi.GetNatRules(
+		ctx,
+		128,
+		gateway.GatewayRef.Id,
+		org.Org.ID,
+		nil)
 	if err != nil {
 		return false, err
 	}
