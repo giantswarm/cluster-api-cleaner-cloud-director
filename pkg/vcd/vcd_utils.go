@@ -76,3 +76,11 @@ func GetVCDClient(ctx context.Context, c client.Client, vcdCluster *capvcd.VCDCl
 	}
 	return workloadVCDClient, nil
 }
+
+func GetGateway(ctx context.Context, vcdClient *vcdsdk.Client, vcdCluster *capvcd.VCDCluster) (*vcdsdk.GatewayManager, error) {
+	gateway, err := vcdsdk.NewGatewayManager(ctx, vcdClient, vcdCluster.Spec.OvdcNetwork, vcdCluster.Spec.LoadBalancerConfigSpec.VipSubnet)
+	if err != nil {
+		return nil, err
+	}
+	return gateway, nil
+}

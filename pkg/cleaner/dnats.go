@@ -21,6 +21,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/giantswarm/cluster-api-cleaner-cloud-director/pkg/vcd"
+
 	"github.com/giantswarm/microerror"
 	"github.com/go-logr/logr"
 	"github.com/vmware/cloud-provider-for-cloud-director/pkg/vcdsdk"
@@ -41,7 +43,7 @@ var _ Cleaner = &DNATCleaner{}
 
 func (lbc *DNATCleaner) Clean(ctx context.Context, log logr.Logger, vcdClient *vcdsdk.Client, c *capvcd.VCDCluster) (bool, error) {
 	log = log.WithName("DNATCleaner")
-	gateway, err := vcdsdk.NewGatewayManager(ctx, vcdClient, c.Spec.OvdcNetwork, c.Spec.LoadBalancerConfigSpec.VipSubnet)
+	gateway, err := vcd.GetGateway(ctx, vcdClient, c)
 	if err != nil {
 		return false, err
 	}
@@ -65,9 +67,6 @@ func (lbc *DNATCleaner) Clean(ctx context.Context, log logr.Logger, vcdClient *v
 		return false, err
 	}
 	infraId := c.Status.InfraId
-	if len(infraId) == 0 {
-		return true, microerror.Mask(fmt.Errorf(".status.infraId is not populated on the cluster: %s", c.Name))
-	}
 	if len(edgeNatRules.Values) == 0 {
 		log.Info("there is nothing to do")
 		return false, nil

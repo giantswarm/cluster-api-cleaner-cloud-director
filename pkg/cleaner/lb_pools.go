@@ -21,7 +21,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/giantswarm/microerror"
+	"github.com/giantswarm/cluster-api-cleaner-cloud-director/pkg/vcd"
+
 	"github.com/go-logr/logr"
 	"github.com/vmware/cloud-provider-for-cloud-director/pkg/vcdsdk"
 	capvcd "github.com/vmware/cluster-api-provider-cloud-director/api/v1beta1"
@@ -41,7 +42,7 @@ var _ Cleaner = &LBPoolCleaner{}
 
 func (lbc *LBPoolCleaner) Clean(ctx context.Context, log logr.Logger, vcdClient *vcdsdk.Client, c *capvcd.VCDCluster) (bool, error) {
 	log = log.WithName("LBPoolCleaner")
-	gateway, err := vcdsdk.NewGatewayManager(ctx, vcdClient, c.Spec.OvdcNetwork, c.Spec.LoadBalancerConfigSpec.VipSubnet)
+	gateway, err := vcd.GetGateway(ctx, vcdClient, c)
 	if err != nil {
 		return false, err
 	}
@@ -50,9 +51,6 @@ func (lbc *LBPoolCleaner) Clean(ctx context.Context, log logr.Logger, vcdClient 
 		return false, err
 	}
 	infraId := c.Status.InfraId
-	if len(infraId) == 0 {
-		return true, microerror.Mask(fmt.Errorf(".status.infraId is not populated on the cluster: %s", c.Name))
-	}
 	deleted := 0
 	for _, lbp := range lbps {
 		lbName := lbp.NsxtAlbPool.Name

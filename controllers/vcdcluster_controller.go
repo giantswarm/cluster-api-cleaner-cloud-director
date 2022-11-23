@@ -18,6 +18,7 @@ package controllers
 
 import (
 	"context"
+	"fmt"
 	"time"
 
 	"github.com/go-logr/logr"
@@ -122,6 +123,10 @@ func (r *VCDClusterReconciler) reconcileDelete(ctx context.Context, log logr.Log
 			"expectedLabelKey", key.CapiClusterLabelKey,
 			"existingLabels", vcdCluster.Labels)
 		return ctrl.Result{}, nil
+	}
+	if len(vcdCluster.Status.InfraId) == 0 {
+		e := fmt.Errorf(".status.infraId is not populated on the cluster: %s", vcdCluster.Name)
+		return ctrl.Result{Requeue: true, RequeueAfter: time.Second * 10}, microerror.Mask(e)
 	}
 
 	vcdClient, err := vcd.GetVCDClient(ctx, r.Client, vcdCluster, log)
