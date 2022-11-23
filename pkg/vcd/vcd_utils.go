@@ -18,6 +18,11 @@ package vcd
 
 import (
 	"context"
+	"fmt"
+	"net/http"
+	"net/url"
+
+	"github.com/peterhellberg/link"
 
 	"strings"
 
@@ -62,6 +67,7 @@ func getUserCredentialsForCluster(ctx context.Context, cli client.Client, define
 	return userCredentials, nil
 }
 
+// GetVCDClient a helper function for initializing vcd api client, it gets the credentials from the k8s secret
 func GetVCDClient(ctx context.Context, c client.Client, vcdCluster *capvcd.VCDCluster, log logr.Logger) (*vcdsdk.Client, error) {
 	userCreds, err := getUserCredentialsForCluster(ctx, c, vcdCluster.Spec.UserCredentialsContext)
 	if err != nil {
@@ -77,10 +83,48 @@ func GetVCDClient(ctx context.Context, c client.Client, vcdCluster *capvcd.VCDCl
 	return workloadVCDClient, nil
 }
 
+// GetGateway a helper function that creates and returns GatewayManager
 func GetGateway(ctx context.Context, vcdClient *vcdsdk.Client, vcdCluster *capvcd.VCDCluster) (*vcdsdk.GatewayManager, error) {
 	gateway, err := vcdsdk.NewGatewayManager(ctx, vcdClient, vcdCluster.Spec.OvdcNetwork, vcdCluster.Spec.LoadBalancerConfigSpec.VipSubnet)
 	if err != nil {
 		return nil, err
 	}
 	return gateway, nil
+}
+
+// GetCursor handles the paging mechanism for queries that may return a lot of items
+// https://github.com/vmware/cloud-provider-for-cloud-director/blob/v1.2.0/pkg/vcdsdk/gateway.go#L199
+func GetCursor(resp *http.Response) (string, error) {
+	cursorURI := ""
+	for _, linklet := range resp.Header["Link"] {
+		for _, l := range link.Parse(linklet) {
+			if l.Rel == "nextPage" {
+				cursorURI = l.URI
+				break
+			}
+		}
+		if cursorURI != "" {
+			break
+		}
+	}
+	if cursorURI == "" {
+		return "", nil
+	}
+
+	u, err := url.Parse(cursorURI)
+	if err != nil {
+		return "", fmt.Errorf("unable to parse cursor URI [%s]: [%v]", cursorURI, err)
+	}
+
+	cursorStr := ""
+	keyMap, err := url.ParseQuery(u.RawQuery)
+	if err != nil {
+		return "", fmt.Errorf("unable to parse raw query [%s]: [%v]", u.RawQuery, err)
+	}
+
+	if cursorStrList, ok := keyMap["cursor"]; ok {
+		cursorStr = cursorStrList[0]
+	}
+
+	return cursorStr, nil
 }

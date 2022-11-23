@@ -23,9 +23,11 @@ import (
 
 	"github.com/giantswarm/cluster-api-cleaner-cloud-director/pkg/vcd"
 
+	"github.com/antihax/optional"
 	"github.com/giantswarm/microerror"
 	"github.com/go-logr/logr"
 	"github.com/vmware/cloud-provider-for-cloud-director/pkg/vcdsdk"
+	swaggerClient "github.com/vmware/cloud-provider-for-cloud-director/pkg/vcdswaggerclient"
 	capvcd "github.com/vmware/cluster-api-provider-cloud-director/api/v1beta1"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 )
@@ -54,36 +56,51 @@ func (lbc *DNATCleaner) Clean(ctx context.Context, log logr.Logger, vcdClient *v
 	if org == nil || org.Org == nil {
 		return false, microerror.Mask(fmt.Errorf("obtained nil org when getting org by name [%s]", vcdClient.ClusterOrgName))
 	}
-	edgeNatRules, _, err := vcdClient.APIClient.EdgeGatewayNatRulesApi.GetNatRules(
-		ctx,
-		128,
-		gateway.GatewayRef.Id,
-		org.Org.ID,
-		nil)
-	if err != nil {
-		return false, err
-	}
+	var toDelete []string
 	infraId := c.Status.InfraId
-	if len(edgeNatRules.Values) == 0 {
-		log.Info("there is nothing to do")
-		return false, nil
-	}
-	deleted := 0
+	cursor := optional.EmptyString()
 
-	for _, enr := range edgeNatRules.Values {
-		enrName := enr.Name
-		// if the name of the DNAT rule contains the cluster's infraId, delete this item
-		if strings.Contains(enrName, infraId) {
-			log.Info(fmt.Sprintf("deleting DNAT: %s", enrName))
-			err = gateway.DeleteDNATRule(ctx, enrName, false)
+	// in each iteration we will be fetching 128 nat rules
+	for {
+		edgeNatRules, resp, err := vcdClient.APIClient.EdgeGatewayNatRulesApi.GetNatRules(
+			ctx,
+			128,
+			gateway.GatewayRef.Id,
+			org.Org.ID,
+			&swaggerClient.EdgeGatewayNatRulesApiGetNatRulesOpts{
+				Cursor: cursor,
+			})
+		if err != nil {
+			return false, err
+		}
+
+		for _, enr := range edgeNatRules.Values {
+			enrName := enr.Name
+			// if the name of the DNAT rule contains the cluster's infraId, delete this item
+			if strings.Contains(enrName, infraId) {
+				toDelete = append(toDelete, enrName)
+			}
+		}
+		cursorStr, err := vcd.GetCursor(resp)
+		if err != nil {
+			return false, microerror.Mask(fmt.Errorf("error while parsing response [%+v]: [%v]", resp, err))
+		}
+		if cursorStr == "" {
+			break
+		}
+		cursor = optional.NewString(cursorStr)
+	}
+
+	// do the actual deletion, it needs to be done in a separate step, otherwise the paging&cursor is not behaving correctly
+	if len(toDelete) > 0 {
+		for _, enr := range toDelete {
+			log.Info(fmt.Sprintf("deleting DNAT: %s", enr))
+			err = gateway.DeleteDNATRule(ctx, enr, false)
 			if err != nil {
 				return false, err
 			}
-			deleted++
 		}
-	}
-	if deleted > 0 {
-		log.Info(fmt.Sprintf("%d DNATs were deleted", deleted))
+		log.Info(fmt.Sprintf("%d DNATs were deleted", len(toDelete)))
 	}
 
 	return false, nil

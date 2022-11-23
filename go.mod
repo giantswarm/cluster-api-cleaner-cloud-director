@@ -3,8 +3,10 @@ module github.com/giantswarm/cluster-api-cleaner-cloud-director
 go 1.18
 
 require (
+	github.com/antihax/optional v1.0.0
 	github.com/giantswarm/microerror v0.4.0
 	github.com/go-logr/logr v1.2.2
+	github.com/peterhellberg/link v1.1.0
 	github.com/pkg/errors v0.9.1
 	github.com/vmware/cloud-provider-for-cloud-director v0.0.0-20221104192532-8946fef8b046
 	github.com/vmware/cluster-api-provider-cloud-director v0.0.0-20221104233019-99b9d0ca0b3f
@@ -20,7 +22,6 @@ require (
 	cloud.google.com/go v0.99.0 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
-	github.com/antihax/optional v1.0.0 // indirect
 	github.com/apparentlymart/go-cidr v1.1.0 // indirect
 	github.com/araddon/dateparse v0.0.0-20190622164848-0fb0a474d195 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
@@ -54,7 +55,6 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
-	github.com/peterhellberg/link v1.1.0 // indirect
 	github.com/prometheus/client_golang v1.12.1 // indirect
 	github.com/prometheus/client_model v0.2.0 // indirect
 	github.com/prometheus/common v0.32.1 // indirect
