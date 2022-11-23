@@ -29,35 +29,35 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 )
 
-type VirtualServiceCleaner struct {
+type LBPoolCleaner struct {
 	cli client.Client
 }
 
-func NewVirtualServiceCleaner(cli client.Client) *VirtualServiceCleaner {
-	return &VirtualServiceCleaner{cli: cli}
+func NewLBPoolCleaner(cli client.Client) *LBPoolCleaner {
+	return &LBPoolCleaner{cli: cli}
 }
 
 // force implementing Cleaner interface
-var _ Cleaner = &VirtualServiceCleaner{}
+var _ Cleaner = &LBPoolCleaner{}
 
-func (lbc *VirtualServiceCleaner) Clean(ctx context.Context, log logr.Logger, vcdClient *vcdsdk.Client, c *capvcd.VCDCluster) (bool, error) {
-	log = log.WithName("VirtualServiceCleaner")
+func (lbc *LBPoolCleaner) Clean(ctx context.Context, log logr.Logger, vcdClient *vcdsdk.Client, c *capvcd.VCDCluster) (bool, error) {
+	log = log.WithName("LBPoolCleaner")
 	gateway, err := vcd.GetGateway(ctx, vcdClient, c)
 	if err != nil {
 		return false, err
 	}
-	vSvcs, err := vcdClient.VCDClient.GetAllAlbVirtualServices(gateway.GatewayRef.Id, nil)
+	lbps, err := vcdClient.VCDClient.GetAllAlbPools(gateway.GatewayRef.Id, nil)
 	if err != nil {
 		return false, err
 	}
 	infraId := c.Status.InfraId
 	deleted := 0
-	for _, vSvc := range vSvcs {
-		svcName := vSvc.NsxtAlbVirtualService.Name
-		// if the name of the virtual service contains the cluster's infraId, delete this virtual service
-		if strings.Contains(svcName, infraId) {
-			log.Info(fmt.Sprintf("deleting virtual service: %s", svcName))
-			err = gateway.DeleteVirtualService(ctx, svcName, false)
+	for _, lbp := range lbps {
+		lbName := lbp.NsxtAlbPool.Name
+		// if the name of the load balancer pool contains the cluster's infraId, delete this lb pool
+		if strings.Contains(lbName, infraId) {
+			log.Info(fmt.Sprintf("deleting load balancer pool: %s", lbName))
+			err = gateway.DeleteLoadBalancerPool(ctx, lbName, false)
 			if err != nil {
 				return false, err
 			}
@@ -65,7 +65,7 @@ func (lbc *VirtualServiceCleaner) Clean(ctx context.Context, log logr.Logger, vc
 		}
 	}
 	if deleted > 0 {
-		log.Info(fmt.Sprintf("%d virtual services were deleted", deleted))
+		log.Info(fmt.Sprintf("%d load balancer pool were deleted", deleted))
 	}
 
 	return false, nil
