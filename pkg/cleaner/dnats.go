@@ -47,9 +47,6 @@ func (lbc *DNATCleaner) Clean(ctx context.Context, log logr.Logger, vcdClient *v
 	if err != nil {
 		return false, err
 	}
-	if err := vcdClient.RefreshBearerToken(); err != nil {
-		return false, err
-	}
 	org, err := vcdClient.VCDClient.GetOrgByName(vcdClient.ClusterOrgName)
 	if err != nil {
 		return false, microerror.Mask(err)
