@@ -8,7 +8,7 @@ require (
 	github.com/go-logr/logr v1.2.2
 	github.com/peterhellberg/link v1.1.0
 	github.com/pkg/errors v0.9.1
-	github.com/vmware/cloud-provider-for-cloud-director v0.0.0-20221104192532-8946fef8b046
+	github.com/vmware/cloud-provider-for-cloud-director v1.2.0
 	github.com/vmware/cluster-api-provider-cloud-director v0.0.0-20221104233019-99b9d0ca0b3f
 	go.uber.org/zap v1.19.1
 	k8s.io/api v0.24.1
