@@ -102,6 +102,7 @@ func mainE(ctx context.Context) error {
 		cleaner.NewVirtualServiceCleaner(mgr.GetClient()),
 		cleaner.NewLBPoolCleaner(mgr.GetClient()),
 		cleaner.NewDNATCleaner(mgr.GetClient()),
+		cleaner.NewAppPortProfileCleaner(mgr.GetClient()),
 	}
 
 	if err = (&controllers.VCDClusterReconciler{

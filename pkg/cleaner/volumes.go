@@ -38,8 +38,5 @@ func NewVolumeCleaner(cli client.Client) *VolumeCleaner {
 var _ Cleaner = &VolumeCleaner{}
 
 func (vc *VolumeCleaner) Clean(ctx context.Context, log logr.Logger, vcdClient *vcdsdk.Client, c *capvcd.VCDCluster) (bool, error) {
-	log = log.WithName("VolumeCleaner")
-	log.Info("no-op")
-	// todo: this
 	return false, nil
 }
