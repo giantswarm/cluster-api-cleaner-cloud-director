@@ -1,17 +1,17 @@
 module github.com/giantswarm/cluster-api-cleaner-cloud-director
 
-go 1.18
+go 1.19
 
 require (
 	github.com/antihax/optional v1.0.0
 	github.com/giantswarm/microerror v0.4.0
-	github.com/go-logr/logr v1.2.2
-	github.com/peterhellberg/link v1.1.0
+	github.com/go-logr/logr v1.2.3
+	github.com/peterhellberg/link v1.2.0
 	github.com/pkg/errors v0.9.1
 	github.com/vmware/cloud-provider-for-cloud-director v1.2.0
-	github.com/vmware/cluster-api-provider-cloud-director v0.0.0-20221104233019-99b9d0ca0b3f
-	github.com/vmware/go-vcloud-director/v2 v2.15.0
-	go.uber.org/zap v1.19.1
+	github.com/vmware/cluster-api-provider-cloud-director v0.0.0-20221214193317-51dffb617a19
+	github.com/vmware/go-vcloud-director/v2 v2.18.0
+	go.uber.org/zap v1.24.0
 	k8s.io/api v0.24.1
 	k8s.io/apimachinery v0.24.1
 	k8s.io/client-go v0.24.1
@@ -64,11 +64,11 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
-	golang.org/x/net v0.0.0-20220531201128-c960675eff93 // indirect
+	golang.org/x/net v0.2.0 // indirect
 	golang.org/x/oauth2 v0.0.0-20220411215720-9780585627b5 // indirect
-	golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f // indirect
-	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
-	golang.org/x/text v0.3.8 // indirect
+	golang.org/x/sys v0.3.0 // indirect
+	golang.org/x/term v0.3.0 // indirect
+	golang.org/x/text v0.5.0 // indirect
 	golang.org/x/time v0.0.0-20220210224613-90d013bbcef8 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.2.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
@@ -94,13 +94,14 @@ replace (
 	github.com/containerd/containerd v1.5.9 => github.com/containerd/containerd v1.6.6
 	github.com/containerd/containerd v1.6.1 => github.com/containerd/containerd v1.6.6
 	github.com/containerd/imgcrypt v1.1.1 => github.com/containerd/imgcrypt v1.1.5
-	github.com/coreos/etcd => github.com/coreos/etcd v3.3.25+incompatible
+	github.com/coreos/etcd => github.com/coreos/etcd v3.3.27+incompatible
 	github.com/dgrijalva/jwt-go => github.com/dgrijalva/jwt-go/v4 v4.0.0-preview1
 	github.com/gogo/protobuf v1.3.1 => github.com/gogo/protobuf v1.3.2
 	github.com/gorilla/websocket v1.4.0 => github.com/gorilla/websocket v1.4.2
 	github.com/opencontainers/runc v1.0.2 => github.com/opencontainers/runc v1.1.2
 	github.com/opencontainers/runc v1.1.1 => github.com/opencontainers/runc v1.1.2
 	github.com/pkg/sftp v1.10.1 => github.com/pkg/sftp v1.13.4
+	golang.org/x/net => golang.org/x/net v0.4.0
 	sigs.k8s.io/cluster-api => sigs.k8s.io/cluster-api v1.0.1-0.20211028151834-d72fd59c8483
 )
 
