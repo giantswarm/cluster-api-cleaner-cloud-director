@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add cleaner for Application Port Profiles.
 - Add `compatibleProviders` to `Chart.yaml`.
+- Add use of runtime/default seccomp profile.
 
 ## [0.2.0] - 2022-11-24
 
