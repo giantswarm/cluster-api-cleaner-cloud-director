@@ -11,8 +11,8 @@ import (
 	"github.com/vmware/go-vcloud-director/v2/types/v56"
 )
 
-func GetDiskRecordsOfClusterByDescription(vcdClient *vcdsdk.Client, ClusterId string) ([]*types.DiskRecordType, error) {
-	filter := "description==" + url.QueryEscape(ClusterId)
+func GetDiskRecordsOfClusterByDescription(vcdClient *vcdsdk.Client, clusterId string) ([]*types.DiskRecordType, error) {
+	filter := "description==" + url.QueryEscape(clusterId)
 	params := map[string]string{"type": "disk", "filter": filter, "filterEncoded": "true"}
 
 	page := 1
@@ -22,7 +22,7 @@ func GetDiskRecordsOfClusterByDescription(vcdClient *vcdsdk.Client, ClusterId st
 		results, err := vcdClient.VCDClient.QueryWithNotEncodedParams(nil, params)
 		if err != nil {
 			return nil, fmt.Errorf("failed to list disk records by description. description[%s] page[%d] [%v]",
-				ClusterId, page, err)
+				clusterId, page, err)
 		}
 		disks = append(disks, results.Results.DiskRecord...)
 
