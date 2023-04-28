@@ -5,12 +5,12 @@ go 1.19
 require (
 	github.com/antihax/optional v1.0.0
 	github.com/giantswarm/microerror v0.4.0
-	github.com/go-logr/logr v1.2.3
+	github.com/go-logr/logr v1.2.4
 	github.com/peterhellberg/link v1.2.0
 	github.com/pkg/errors v0.9.1
 	github.com/vmware/cloud-provider-for-cloud-director v1.2.0
-	github.com/vmware/cluster-api-provider-cloud-director v0.0.0-20221214193317-51dffb617a19
-	github.com/vmware/go-vcloud-director/v2 v2.18.0
+	github.com/vmware/cluster-api-provider-cloud-director a85687652b92
+	github.com/vmware/go-vcloud-director/v2 v2.20.0
 	go.uber.org/zap v1.24.0
 	k8s.io/api v0.24.1
 	k8s.io/apimachinery v0.24.1
@@ -101,7 +101,7 @@ replace (
 	github.com/opencontainers/runc v1.0.2 => github.com/opencontainers/runc v1.1.2
 	github.com/opencontainers/runc v1.1.1 => github.com/opencontainers/runc v1.1.2
 	github.com/pkg/sftp v1.10.1 => github.com/pkg/sftp v1.13.4
-	golang.org/x/net => golang.org/x/net v0.7.0
+	golang.org/x/net => golang.org/x/net v0.9.0
 	sigs.k8s.io/cluster-api => sigs.k8s.io/cluster-api v1.0.1-0.20211028151834-d72fd59c8483
 )
 
