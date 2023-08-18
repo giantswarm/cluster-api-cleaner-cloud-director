@@ -100,7 +100,7 @@ replace (
 	github.com/opencontainers/runc v1.0.2 => github.com/opencontainers/runc v1.1.2
 	github.com/opencontainers/runc v1.1.1 => github.com/opencontainers/runc v1.1.2
 	github.com/pkg/sftp v1.10.1 => github.com/pkg/sftp v1.13.4
-	golang.org/x/net => golang.org/x/net v0.7.0
+	golang.org/x/net => golang.org/x/net v0.14.0
 	sigs.k8s.io/cluster-api => sigs.k8s.io/cluster-api v1.0.1-0.20211028151834-d72fd59c8483
 )
 
