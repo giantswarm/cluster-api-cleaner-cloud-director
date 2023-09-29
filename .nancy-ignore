@@ -4,4 +4,10 @@
 
 # This requires apiserver v0.26.0 but there is no compatible cluster-api version yet
 sonatype-2022-6522 until=2023-06-01
-CVE-2020-8561 until=2023-06-01
+CVE-2020-8561 until=2024-01-01
+
+# pkg:net@0.7.0 Improper Neutralization of Input During Web Page Generation
+CVE-2023-3978
+
+# pkg:grpc@v1.40.0 gRPC HTTP2 header size exceeded error
+CVE-2023-32731
