@@ -20,7 +20,6 @@ podSecurityContext:
   runAsNonRoot: true
   seccompProfile:
     type: RuntimeDefault
-  runAsNonRoot: true
 
 # Add seccomp to container security context
 containerSecurityContext:
