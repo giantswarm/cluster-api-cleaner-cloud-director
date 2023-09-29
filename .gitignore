@@ -1,4 +1,5 @@
 .idea/
 cover.out
 
-cluster-api-cleaner-cloud-director*
+# binaries
+/cluster-api-cleaner-cloud-director*

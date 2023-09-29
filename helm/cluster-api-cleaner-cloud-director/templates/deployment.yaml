@@ -36,10 +36,10 @@ spec:
         - --enable-leader-election
         - --management-cluster={{ .Values.managementCluster }}
         - -v={{ .Values.logLevel }}
+        {{- with .Values.containerSecurityContext }}
         securityContext:
-          {{- with .Values.securityContext }}
-            {{- . | toYaml | nindent 10 }}
-          {{- end }}
+          {{- . | toYaml | nindent 10 }}
+        {{- end }}
         resources:
           requests:
             cpu: 100m
