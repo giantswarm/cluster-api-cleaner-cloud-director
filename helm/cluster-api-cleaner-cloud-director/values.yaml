@@ -17,15 +17,20 @@ pod:
 
 # Add seccomp to pod security context
 podSecurityContext:
+  runAsNonRoot: true
   seccompProfile:
     type: RuntimeDefault
-  runAsNonRoot: true
 
 # Add seccomp to container security context
-securityContext:
+containerSecurityContext:
   allowPrivilegeEscalation: false
-  seccompProfile:
-    type: RuntimeDefault
   capabilities:
     drop:
       - ALL
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
+global:
+  podSecurityStandards:
+    enforced: false

@@ -7,13 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+### Added
+
+- PSS compliancy
+
 ## [0.3.1] - 2023-08-24
 
 ### Changed
 
 - Extend ignore for CVE-2020-8561.
 - Ignore CVE-2023-3978 & CVE-2023-32731.
-- Fix security issues reported by kyverno policies. 
+
 
 ## [0.3.0] - 2023-05-02
 
