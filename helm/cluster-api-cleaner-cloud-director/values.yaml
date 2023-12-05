@@ -5,7 +5,7 @@ image:
   name: "giantswarm/cluster-api-cleaner-cloud-director"
   tag: "[[ .Version ]]"
 registry:
-  domain: docker.io
+  domain: gsoci.azurecr.io
 
 logLevel: 0
 
