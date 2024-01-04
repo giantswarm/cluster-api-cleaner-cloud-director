@@ -7,10 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-
 ### Added
 
 - PSS compliancy
+
+### Changed
+
+- Configure `gsoci.azurecr.io` as the default container image registry.
 
 ## [0.3.1] - 2023-08-24
 
@@ -18,7 +21,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Extend ignore for CVE-2020-8561.
 - Ignore CVE-2023-3978 & CVE-2023-32731.
-
 
 ## [0.3.0] - 2023-05-02
 
@@ -35,7 +37,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add cleaner for Load Balancer Pools.
 - Add cleaner for DNAT rules.
-
 
 ## [0.1.0] - 2022-11-21
 
