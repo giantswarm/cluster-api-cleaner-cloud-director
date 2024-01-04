@@ -5,12 +5,12 @@ go 1.19
 require (
 	github.com/antihax/optional v1.0.0
 	github.com/giantswarm/microerror v0.4.0
-	github.com/go-logr/logr v1.2.4
+	github.com/go-logr/logr v1.4.1
 	github.com/peterhellberg/link v1.2.0
 	github.com/pkg/errors v0.9.1
 	github.com/vmware/cloud-provider-for-cloud-director v1.2.0
 	github.com/vmware/cluster-api-provider-cloud-director v0.0.0-20221214193317-51dffb617a19
-	github.com/vmware/go-vcloud-director/v2 v2.21.0
+	github.com/vmware/go-vcloud-director/v2 v2.22.0
 	go.uber.org/zap v1.26.0
 	k8s.io/api v0.24.1
 	k8s.io/apimachinery v0.24.1
