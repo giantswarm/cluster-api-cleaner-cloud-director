@@ -11,3 +11,6 @@ CVE-2023-3978
 
 # pkg:grpc@v1.40.0 gRPC HTTP2 header size exceeded error
 CVE-2023-32731
+
+# pkg:golang/google.golang.org/protobuf@v1.28.0 CWE-835: Loop with Unreachable Exit Condition ('Infinite Loop')
+CVE-2024-24786 until=2024-07-01

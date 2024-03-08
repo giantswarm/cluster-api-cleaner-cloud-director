@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Ignore CVE-2024-24786 until 2024-07-01 (low risk CVE).
+
 ## [0.4.0] - 2024-03-08
 
 ### Added
