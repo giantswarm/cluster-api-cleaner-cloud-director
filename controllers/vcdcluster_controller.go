@@ -18,7 +18,6 @@ package controllers
 
 import (
 	"context"
-	"fmt"
 	"time"
 
 	"github.com/go-logr/logr"
@@ -124,29 +123,29 @@ func (r *VCDClusterReconciler) reconcileDelete(ctx context.Context, log logr.Log
 			"existingLabels", vcdCluster.Labels)
 		return ctrl.Result{}, nil
 	}
-	if len(vcdCluster.Status.InfraId) == 0 {
-		e := fmt.Errorf(".status.infraId is not populated on the cluster: %s", vcdCluster.Name)
-		return ctrl.Result{Requeue: true, RequeueAfter: time.Second * 10}, microerror.Mask(e)
-	}
 
-	vcdClient, err := vcd.GetVCDClient(ctx, r.Client, vcdCluster, log)
-	if err != nil {
-		return ctrl.Result{}, nil
-	}
-
-	log.V(1).Info("Cleaning VCD resources belonging to cluster", "cluster", clusterName)
-	requeueForDeletion := false
-	for _, c := range r.Cleaners {
-		requeue, err := c.Clean(ctx, log, vcdClient, vcdCluster)
+	if len(vcdCluster.Status.InfraId) > 0 {
+		vcdClient, err := vcd.GetVCDClient(ctx, r.Client, vcdCluster, log)
 		if err != nil {
-			return reconcile.Result{}, microerror.Mask(err)
+			return ctrl.Result{}, nil
 		}
-		requeueForDeletion = requeueForDeletion || requeue
-	}
 
-	if requeueForDeletion {
-		log.V(1).Info("There is an ongoing clean-up process. Adding cluster into queue again")
-		return ctrl.Result{Requeue: true, RequeueAfter: time.Second * 10}, nil
+		log.V(1).Info("Cleaning VCD resources belonging to cluster", "cluster", clusterName)
+		requeueForDeletion := false
+		for _, c := range r.Cleaners {
+			requeue, err := c.Clean(ctx, log, vcdClient, vcdCluster)
+			if err != nil {
+				return reconcile.Result{}, microerror.Mask(err)
+			}
+			requeueForDeletion = requeueForDeletion || requeue
+		}
+
+		if requeueForDeletion {
+			log.V(1).Info("There is an ongoing clean-up process. Adding cluster into queue again")
+			return ctrl.Result{Requeue: true, RequeueAfter: time.Second * 10}, nil
+		}
+	} else {
+		log.Info("Status.InfraId is empty. Assuming the cluster creation failed and there is nothing to clean up.")
 	}
 
 	log.Info("Clean-up is done. Removing finalizer")
