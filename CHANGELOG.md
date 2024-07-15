@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update renovate to json5 config.
+
 ## [0.4.2] - 2024-03-12
 
 ### Changed
