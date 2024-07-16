@@ -1,6 +1,8 @@
 module github.com/giantswarm/cluster-api-cleaner-cloud-director
 
-go 1.19
+go 1.21
+
+toolchain go1.22.4
 
 require (
 	github.com/antihax/optional v1.0.0
@@ -10,7 +12,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/vmware/cloud-provider-for-cloud-director v1.2.0
 	github.com/vmware/cluster-api-provider-cloud-director v0.0.0-20221214193317-51dffb617a19
-	github.com/vmware/go-vcloud-director/v2 v2.22.0
+	github.com/vmware/go-vcloud-director/v2 v2.24.0
 	go.uber.org/zap v1.27.0
 	k8s.io/api v0.24.1
 	k8s.io/apimachinery v0.24.1
@@ -84,7 +86,7 @@ require (
 	k8s.io/utils v0.0.0-20220210201930-3a6ce19ff2f9 // indirect
 	sigs.k8s.io/json v0.0.0-20211208200746-9f7c6b3444d2 // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.1 // indirect
-	sigs.k8s.io/yaml v1.3.0 // indirect
+	sigs.k8s.io/yaml v1.4.0 // indirect
 )
 
 replace (
