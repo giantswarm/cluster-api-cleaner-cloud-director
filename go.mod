@@ -10,7 +10,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/vmware/cloud-provider-for-cloud-director v1.2.0
 	github.com/vmware/cluster-api-provider-cloud-director v0.0.0-20221214193317-51dffb617a19
-	github.com/vmware/go-vcloud-director/v2 v2.22.0
+	github.com/vmware/go-vcloud-director/v2 v2.25.0
 	go.uber.org/zap v1.27.0
 	k8s.io/api v0.24.1
 	k8s.io/apimachinery v0.24.1
@@ -100,13 +100,13 @@ replace (
 	github.com/opencontainers/runc v1.0.2 => github.com/opencontainers/runc v1.1.2
 	github.com/opencontainers/runc v1.1.1 => github.com/opencontainers/runc v1.1.2
 	github.com/pkg/sftp v1.10.1 => github.com/pkg/sftp v1.13.4
-	golang.org/x/net => golang.org/x/net v0.22.0
+	golang.org/x/net => golang.org/x/net v0.27.0
 	sigs.k8s.io/cluster-api => sigs.k8s.io/cluster-api v1.0.1-0.20211028151834-d72fd59c8483
 )
 
 exclude (
-	github.com/hashicorp/consul/api v1.1.0
-	github.com/hashicorp/consul/api v1.10.1
-	github.com/hashicorp/consul/sdk v0.1.1
-	github.com/hashicorp/consul/sdk v0.8.0
+	github.com/hashicorp/consul/api v1.29.2
+	github.com/hashicorp/consul/api v1.29.2
+	github.com/hashicorp/consul/sdk v0.16.1
+	github.com/hashicorp/consul/sdk v0.16.1
 )
