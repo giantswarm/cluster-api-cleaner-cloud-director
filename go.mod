@@ -1,6 +1,8 @@
 module github.com/giantswarm/cluster-api-cleaner-cloud-director
 
-go 1.19
+go 1.21
+
+toolchain go1.22.4
 
 require (
 	github.com/antihax/optional v1.0.0
