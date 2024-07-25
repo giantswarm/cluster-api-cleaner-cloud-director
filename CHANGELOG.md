@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Update renovate to json5 config.
+- Upgrade `k8s.io/api`, `k8s.io/client-go` and `k8s.io/apimachinery` from `0.24.1` to `0.29.3`
+- Upgrade `sigs.k8s.io/cluster-api` from `1.1.4` to `1.6.5`
+- Upgrade `sigs.k8s.io/cluster-api-provider-cloud-director` from `0.0.0-20221214193317-51dffb617a19` to `1.3.0`
+- Upgrade `sigs.k8s.io/controller-runtime` from `0.12.1` to `0.17.3`
 
 ## [0.4.2] - 2024-03-12
 
