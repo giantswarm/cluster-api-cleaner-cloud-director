@@ -27,7 +27,7 @@ import (
 	"github.com/giantswarm/microerror"
 	"github.com/go-logr/logr"
 	"github.com/vmware/cloud-provider-for-cloud-director/pkg/vcdsdk"
-	swaggerClient "github.com/vmware/cloud-provider-for-cloud-director/pkg/vcdswaggerclient"
+	swaggerClient "github.com/vmware/cloud-provider-for-cloud-director/pkg/vcdswaggerclient_37_2"
 	capvcd "github.com/vmware/cluster-api-provider-cloud-director/api/v1beta1"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 )

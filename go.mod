@@ -1,8 +1,8 @@
 module github.com/giantswarm/cluster-api-cleaner-cloud-director
 
-go 1.21
+go 1.23.0
 
-toolchain go1.22.4
+toolchain go1.23.6
 
 require (
 	github.com/antihax/optional v1.0.0
@@ -10,10 +10,9 @@ require (
 	github.com/go-logr/logr v1.4.2
 	github.com/peterhellberg/link v1.2.0
 	github.com/pkg/errors v0.9.1
-	github.com/vmware/cloud-provider-for-cloud-director v1.2.0
+	github.com/vmware/cloud-provider-for-cloud-director v0.0.0-20240307190816-5102b2e20a4e
 	github.com/vmware/cluster-api-provider-cloud-director v1.3.0
 	github.com/vmware/go-vcloud-director/v2 v2.24.0
-	go.uber.org/zap v1.27.0
 	k8s.io/api v0.29.3
 	k8s.io/apimachinery v0.29.3
 	k8s.io/client-go v0.29.3
@@ -61,14 +60,16 @@ require (
 	github.com/prometheus/common v0.45.0 // indirect
 	github.com/prometheus/procfs v0.12.0 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
+	github.com/sethvargo/go-password v0.2.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
+	go.uber.org/zap v1.27.0 // indirect
 	golang.org/x/exp v0.0.0-20240119083558-1b970713d09a // indirect
-	golang.org/x/net v0.23.0 // indirect
+	golang.org/x/net v0.39.0 // indirect
 	golang.org/x/oauth2 v0.14.0 // indirect
-	golang.org/x/sys v0.18.0 // indirect
-	golang.org/x/term v0.18.0 // indirect
-	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/sys v0.32.0 // indirect
+	golang.org/x/term v0.31.0 // indirect
+	golang.org/x/text v0.24.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.4.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
@@ -86,3 +87,5 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.4.1 // indirect
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
+
+replace golang.org/x/net v0.23.0 => golang.org/x/net v0.39.0
