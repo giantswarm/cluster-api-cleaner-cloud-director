@@ -13,7 +13,6 @@ require (
 	github.com/vmware/cloud-provider-for-cloud-director v0.0.0-20240307190816-5102b2e20a4e
 	github.com/vmware/cluster-api-provider-cloud-director v1.3.0
 	github.com/vmware/go-vcloud-director/v2 v2.24.0
-	go.uber.org/zap v1.27.0
 	k8s.io/api v0.29.3
 	k8s.io/apimachinery v0.29.3
 	k8s.io/client-go v0.29.3
@@ -64,6 +63,7 @@ require (
 	github.com/sethvargo/go-password v0.2.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
+	go.uber.org/zap v1.27.0 // indirect
 	golang.org/x/exp v0.0.0-20240119083558-1b970713d09a // indirect
 	golang.org/x/net v0.23.0 // indirect
 	golang.org/x/oauth2 v0.14.0 // indirect
