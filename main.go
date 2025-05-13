@@ -79,7 +79,8 @@ func mainE(ctx context.Context) error {
 
 	flag.Parse()
 
-	ctrl.SetLogger(zap.New(zap.Level(zapcore.Level(-logLevel))))
+	level := int8(-logLevel) //nolint:gosec
+	ctrl.SetLogger(zap.New(zap.Level(zapcore.Level(level))))
 
 	config, err := ctrl.GetConfig()
 	if err != nil {
