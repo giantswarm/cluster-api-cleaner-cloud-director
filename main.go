@@ -23,6 +23,7 @@ import (
 	"os"
 
 	capvcd "github.com/vmware/cluster-api-provider-cloud-director/api/v1beta1"
+	"go.uber.org/zap/zapcore"
 	"k8s.io/apimachinery/pkg/runtime"
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
@@ -83,7 +84,8 @@ func mainE(ctx context.Context) error {
 
 	flag.Parse()
 
-	ctrl.SetLogger(zap.New(zap.UseFlagOptions(&opts)))
+	level := int8(-logLevel) //nolint:gosec
+	ctrl.SetLogger(zap.New(zap.Level(zapcore.Level(level))))
 
 	config, err := ctrl.GetConfig()
 	if err != nil {
