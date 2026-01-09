@@ -4,7 +4,7 @@ version: 0.5.2-dev
 appVersion: 0.5.2-dev
 description: "Operator for cleaning leftover VCD resources of workload clusters"
 home: "https://github.com/giantswarm/cluster-api-cleaner-cloud-director"
-icon: https://s.giantswarm.io/app-icons/giantswarm/1/dark.svg
+icon: https://s.giantswarm.io/app-icons/vmware-cloud-director/1/icon_dark.png
 annotations:
   application.giantswarm.io/team: "rocket"
   io.giantswarm.application.team: "rocket"
