@@ -6,7 +6,6 @@ description: "Operator for cleaning leftover VCD resources of workload clusters"
 home: "https://github.com/giantswarm/cluster-api-cleaner-cloud-director"
 icon: https://s.giantswarm.io/app-icons/vmware-cloud-director/1/icon_dark.png
 annotations:
-  application.giantswarm.io/team: "rocket"
   io.giantswarm.application.team: "rocket"
   config.giantswarm.io/version: 1.x.x
   ui.giantswarm.io/logo: https://s.giantswarm.io/app-icons/vmware-cloud-director/1/logo_light.png
