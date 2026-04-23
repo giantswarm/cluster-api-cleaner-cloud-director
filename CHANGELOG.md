@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bump `kube-rbac-proxy` sidecar from `v0.5.0` to `v0.19.1` to fix CVE-2023-44487 (HTTP/2 Rapid Reset).
+
 ## [0.5.3] - 2026-02-17
 
 ### Chanaged
