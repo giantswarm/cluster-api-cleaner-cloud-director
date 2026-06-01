@@ -1,8 +1,6 @@
 module github.com/giantswarm/cluster-api-cleaner-cloud-director
 
-go 1.23.0
-
-toolchain go1.23.6
+go 1.25.0
 
 require (
 	github.com/antihax/optional v1.0.0
@@ -89,3 +87,5 @@ require (
 )
 
 replace golang.org/x/net v0.23.0 => golang.org/x/net v0.39.0
+
+replace golang.org/x/sys v0.32.0 => golang.org/x/sys v0.45.0
