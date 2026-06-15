@@ -89,3 +89,19 @@ require (
 replace golang.org/x/net v0.23.0 => golang.org/x/net v0.39.0
 
 replace golang.org/x/sys v0.32.0 => golang.org/x/sys v0.45.0
+
+replace github.com/golang-jwt/jwt/v4 v4.5.0 => github.com/golang-jwt/jwt/v4 v4.5.2
+
+replace github.com/moby/spdystream v0.2.0 => github.com/moby/spdystream v0.5.1
+
+replace github.com/sirupsen/logrus v1.9.0 => github.com/sirupsen/logrus v1.9.4
+
+replace github.com/yuin/goldmark v1.2.1 => github.com/yuin/goldmark v1.8.2
+
+replace go.opentelemetry.io/otel v1.20.0 => go.opentelemetry.io/otel v1.44.0
+
+replace go.opentelemetry.io/otel/sdk v1.20.0 => go.opentelemetry.io/otel/sdk v1.44.0
+
+replace golang.org/x/crypto v0.37.0 => golang.org/x/crypto v0.53.0
+
+replace google.golang.org/grpc v1.59.0 => google.golang.org/grpc v1.81.1
