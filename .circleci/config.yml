@@ -9,7 +9,7 @@ workflows:
     - architect/go-build:
         context: architect
         name: go-build
-        binary: cluster-api-cleaner-cloud-director
+        binary: manager
         resource_class: xlarge
         filters:
           tags:
