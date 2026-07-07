@@ -13,6 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add a Dockerfile for local development and testing.
 - Fixed Renovate syntax.
 
+### Removed
+
+- Removed `PodSecurityPolicy`.
+- Removed `global.podSecurityStandards.enforced` helm value.
+
 ## [0.5.4] - 2026-04-23
 
 ### Changed
