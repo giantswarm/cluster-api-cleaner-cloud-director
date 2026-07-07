@@ -59,7 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Remove finalizers if Status.InfraId is empty.
 
-## [0.4.1] - 2024-03-08]
+## [0.4.1] - 2024-03-08
 
 ### Changed
 
