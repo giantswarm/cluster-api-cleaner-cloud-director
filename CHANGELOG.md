@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Remove superfluous build steps from the Dockerfile.
 - Add a Dockerfile for local development and testing.
+- Fixed Renovate syntax.
 
 ## [0.5.4] - 2026-04-23
 
