@@ -5,7 +5,7 @@ go 1.25.0
 require (
 	github.com/antihax/optional v1.0.0
 	github.com/giantswarm/microerror v0.4.1
-	github.com/go-logr/logr v1.4.2
+	github.com/go-logr/logr v1.4.3
 	github.com/peterhellberg/link v1.2.0
 	github.com/pkg/errors v0.9.1
 	github.com/vmware/cloud-provider-for-cloud-director v0.0.0-20240307190816-5102b2e20a4e
