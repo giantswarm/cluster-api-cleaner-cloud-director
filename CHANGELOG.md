@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove superfluous build steps from the Dockerfile.
 - Add a Dockerfile for local development and testing.
 - Fixed Renovate syntax.
+- chore(deps): update golang docker tag to v1.26.5
 
 ### Removed
 
