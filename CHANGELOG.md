@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed `PodSecurityPolicy`.
 - Removed `global.podSecurityStandards.enforced` helm value.
 
+### Fixed
+
+- fix(deps): update module github.com/go-logr/logr to v1.4.3
+
 ## [0.5.4] - 2026-04-23
 
 ### Changed
