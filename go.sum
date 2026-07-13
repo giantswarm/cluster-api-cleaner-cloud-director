@@ -114,8 +114,6 @@ github.com/prometheus/procfs v0.12.0/go.mod h1:pcuDEFsWDnvcgNzo4EEweacyhjeA9Zk3c
 github.com/rogpeppe/go-internal v1.9.0/go.mod h1:WtVeX8xhTBvf0smdhujwtBcq4Qrzq/fJaraNFVN+nFs=
 github.com/rogpeppe/go-internal v1.11.0 h1:cWPaGQEPrBb5/AsnsZesgZZ9yb1OQ+GOISoDNXVBh4M=
 github.com/rogpeppe/go-internal v1.11.0/go.mod h1:ddIwULY96R17DhadqLgMfk9H9tvdUzkipdSkR5nkCZA=
-github.com/sethvargo/go-password v0.2.0 h1:BTDl4CC/gjf/axHMaDQtw507ogrXLci6XRiLc7i/UHI=
-github.com/sethvargo/go-password v0.2.0/go.mod h1:Ym4Mr9JXLBycr02MFuVQ/0JHidNetSgbzutTr3zsYXE=
 github.com/spf13/pflag v1.0.5 h1:iy+VFUOCP1a+8yFto/drg2CJ5u0yRoB7fZw3DKv/JXA=
 github.com/spf13/pflag v1.0.5/go.mod h1:McXfInJRrz4CZXVZOBLb0bTZqETkiAhM9Iw0y3An2Bg=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
@@ -128,8 +126,8 @@ github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO
 github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 github.com/stretchr/testify v1.9.0 h1:HtqpIVDClZ4nwg75+f6Lvsy/wHu+3BoSGCbBAcpTsTg=
 github.com/stretchr/testify v1.9.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
-github.com/vmware/cloud-provider-for-cloud-director v0.0.0-20240725204714-a0a0e916a5ed h1:JTJVcpsOFI4VaHfPiHKZPepgMU+up9gidp7yRDy2/rs=
-github.com/vmware/cloud-provider-for-cloud-director v0.0.0-20240725204714-a0a0e916a5ed/go.mod h1:aZDliFAerzbmI6pL3bd1R53CEXJkNKkWgdM5q337rAw=
+github.com/vmware/cloud-provider-for-cloud-director v1.2.0 h1:HC6in6Bi76p0s+QWVaWbO2jeJYLhhuHMlvlFsZXPvFE=
+github.com/vmware/cloud-provider-for-cloud-director v1.2.0/go.mod h1:E7pd/SaAz3M2PGN0T9BbByiwGia4SSJ7+cNZkpE6f60=
 github.com/vmware/cluster-api-provider-cloud-director v1.3.2 h1:nfJcGDSoneCB5RFwrPEc908rfv4LJY848c/SWvWr+10=
 github.com/vmware/cluster-api-provider-cloud-director v1.3.2/go.mod h1:AsfWgLp6/TUdT3O7O8eknDAr6s6Ahf/y6Yokg3dOQ68=
 github.com/vmware/go-vcloud-director/v2 v2.26.2 h1:3AAtDWE94UwJSN2oGFLuI+LEkFL449DL+IRwaLA2FFQ=
