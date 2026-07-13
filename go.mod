@@ -10,7 +10,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/vmware/cloud-provider-for-cloud-director v0.0.0-20240725204714-a0a0e916a5ed
 	github.com/vmware/cluster-api-provider-cloud-director v1.3.2
-	github.com/vmware/go-vcloud-director/v2 v2.26.0
+	github.com/vmware/go-vcloud-director/v2 v2.26.2
 	go.uber.org/zap v1.27.0
 	k8s.io/api v0.29.3
 	k8s.io/apimachinery v0.29.3
