@@ -106,4 +106,4 @@ replace google.golang.org/grpc v1.59.0 => google.golang.org/grpc v1.81.1
 // Upstream CAPVCD is archived at v1.3.2 and its api/v1beta2 webhook + api/ conversion code does not
 // compile against controller-runtime v0.24 / cluster-api v1.13 (moved api packages). This replace points
 // at a giantswarm fork that patches only those files. Keep until CAPVCD is replaced/removed as a dependency.
-replace github.com/vmware/cluster-api-provider-cloud-director => github.com/giantswarm/cluster-api-provider-cloud-director v1.3.3-0.20260720145810-bbb7bafac4aa
+replace github.com/vmware/cluster-api-provider-cloud-director => github.com/giantswarm/cluster-api-provider-cloud-director v1.3.3
