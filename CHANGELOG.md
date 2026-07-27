@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix(deps): update module github.com/go-logr/logr to v1.4.3
 - fix(deps): update module github.com/vmware/cluster-api-provider-cloud-director to v1.3.2
 - fix(deps): update module github.com/vmware/go-vcloud-director/v2 to v2.26.2
+- fix(deps): update module github.com/go-logr/logr to v1.4.4
 
 ## [0.5.4] - 2026-04-23
 
