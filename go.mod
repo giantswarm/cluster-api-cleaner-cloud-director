@@ -11,7 +11,7 @@ require (
 	github.com/vmware/cloud-provider-for-cloud-director v1.2.0
 	github.com/vmware/cluster-api-provider-cloud-director v1.3.2
 	github.com/vmware/go-vcloud-director/v2 v2.26.2
-	go.uber.org/zap v1.27.1
+	go.uber.org/zap v1.28.0
 	k8s.io/api v0.36.2
 	k8s.io/apimachinery v0.36.2
 	k8s.io/client-go v0.36.2
