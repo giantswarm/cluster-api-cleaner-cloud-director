@@ -62,10 +62,10 @@ require (
 	golang.org/x/exp v0.0.0-20251219203646-944ab1f22d93 // indirect
 	golang.org/x/net v0.55.0 // indirect
 	golang.org/x/oauth2 v0.36.0 // indirect
-	golang.org/x/sync v0.21.0 // indirect
-	golang.org/x/sys v0.46.0 // indirect
-	golang.org/x/term v0.44.0 // indirect
-	golang.org/x/text v0.38.0 // indirect
+	golang.org/x/sync v0.22.0 // indirect
+	golang.org/x/sys v0.47.0 // indirect
+	golang.org/x/term v0.45.0 // indirect
+	golang.org/x/text v0.40.0 // indirect
 	golang.org/x/time v0.14.0 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.5.0 // indirect
 	google.golang.org/protobuf v1.36.12-0.20260120151049-f2248ac996af // indirect
@@ -83,7 +83,10 @@ require (
 	sigs.k8s.io/yaml v1.6.0 // indirect
 )
 
-replace golang.org/x/net v0.23.0 => golang.org/x/net v0.39.0
+replace (
+	golang.org/x/net v0.23.0 => golang.org/x/net v0.39.0
+	golang.org/x/net v0.55.0 => golang.org/x/net v0.57.0
+)
 
 replace golang.org/x/sys v0.32.0 => golang.org/x/sys v0.45.0
 
