@@ -13,3 +13,8 @@ integration-test: ## Runs the local integration tests (envtest + fake VCD api).
 	@echo "====> $@"
 	KUBEBUILDER_ASSETS="$(shell $(ENVTEST) use $(ENVTEST_K8S_VERSION) --bin-dir $(ENVTEST_ASSETS_DIR) -p path)" \
 		go test -tags=integration $(RACE) -count=1 -timeout=10m ./test/integration/...
+
+.PHONY: integration-test-clean
+integration-test-clean: ## Removes the downloaded envtest assets.
+	@echo "====> $@"
+	@if [ -d "$(ENVTEST_ASSETS_DIR)" ]; then chmod -R u+w "$(ENVTEST_ASSETS_DIR)"; rm -rf "$(ENVTEST_ASSETS_DIR)"; fi
