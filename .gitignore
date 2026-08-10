@@ -3,3 +3,6 @@ cover.out
 
 # binaries
 /cluster-api-cleaner-cloud-director*
+
+# envtest assets
+/bin/

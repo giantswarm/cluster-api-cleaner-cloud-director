@@ -21,6 +21,7 @@ import (
 	"time"
 
 	"github.com/go-logr/logr"
+	"github.com/vmware/cloud-provider-for-cloud-director/pkg/vcdsdk"
 	capvcd "github.com/vmware/cluster-api-provider-cloud-director/api/v1beta1"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	"sigs.k8s.io/cluster-api/util"
@@ -37,6 +38,9 @@ import (
 	"github.com/giantswarm/cluster-api-cleaner-cloud-director/pkg/vcd"
 )
 
+// VCDClientFactory builds the VCD api client used to clean up a vcdCluster.
+type VCDClientFactory func(ctx context.Context, c client.Client, vcdCluster *capvcd.VCDCluster, log logr.Logger) (*vcdsdk.Client, error)
+
 // VCDClusterReconciler reconciles a vcdCluster object
 type VCDClusterReconciler struct {
 	client.Client
@@ -44,6 +48,9 @@ type VCDClusterReconciler struct {
 
 	ManagementCluster string
 	Cleaners          []cleaner.Cleaner
+
+	// NewVCDClient builds the VCD api client. It defaults to vcd.GetVCDClient.
+	NewVCDClient VCDClientFactory
 }
 
 // +kubebuilder:rbac:groups=,resources=secrets,verbs=get;list;watch
@@ -125,7 +132,12 @@ func (r *VCDClusterReconciler) reconcileDelete(ctx context.Context, log logr.Log
 	}
 
 	if len(vcdCluster.Status.InfraId) > 0 {
-		vcdClient, err := vcd.GetVCDClient(ctx, r.Client, vcdCluster, log)
+		newVCDClient := r.NewVCDClient
+		if newVCDClient == nil {
+			newVCDClient = vcd.GetVCDClient
+		}
+
+		vcdClient, err := newVCDClient(ctx, r.Client, vcdCluster, log)
 		if err != nil {
 			return ctrl.Result{}, nil
 		}
