@@ -1,7 +1,7 @@
 ##@ Integration tests
 
-# Integration tests run locally only. They are guarded by the `integration` build
-# tag, so `go test ./...` and CI do not compile them.
+# Integration tests are guarded by the `integration` build
+# tag, so `go test ./...` does not compile them.
 
 ENVTEST_K8S_VERSION ?= 1.36.2
 ENVTEST_VERSION     ?= v0.24.1
