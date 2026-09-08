@@ -98,11 +98,20 @@ replace github.com/sirupsen/logrus v1.9.0 => github.com/sirupsen/logrus v1.9.4
 
 replace github.com/yuin/goldmark v1.2.1 => github.com/yuin/goldmark v1.8.2
 
-replace go.opentelemetry.io/otel v1.20.0 => go.opentelemetry.io/otel v1.44.0
+replace (
+	go.opentelemetry.io/otel v1.20.0 => go.opentelemetry.io/otel v1.44.0
+	go.opentelemetry.io/otel v1.43.0 => go.opentelemetry.io/otel v1.46.0
+)
 
-replace go.opentelemetry.io/otel/sdk v1.20.0 => go.opentelemetry.io/otel/sdk v1.44.0
+replace (
+	go.opentelemetry.io/otel/sdk v1.20.0 => go.opentelemetry.io/otel/sdk v1.44.0
+	go.opentelemetry.io/otel/sdk v1.43.0 => go.opentelemetry.io/otel/sdk v1.46.0
+)
 
-replace golang.org/x/crypto v0.37.0 => golang.org/x/crypto v0.53.0
+replace (
+	golang.org/x/crypto v0.37.0 => golang.org/x/crypto v0.53.0
+	golang.org/x/crypto v0.54.0 => golang.org/x/crypto v0.56.0
+)
 
 replace google.golang.org/grpc v1.59.0 => google.golang.org/grpc v1.81.1
 
@@ -110,3 +119,9 @@ replace google.golang.org/grpc v1.59.0 => google.golang.org/grpc v1.81.1
 // compile against controller-runtime v0.24 / cluster-api v1.13 (moved api packages). This replace points
 // at a giantswarm fork that patches only those files. Keep until CAPVCD is replaced/removed as a dependency.
 replace github.com/vmware/cluster-api-provider-cloud-director => github.com/giantswarm/cluster-api-provider-cloud-director v1.3.3
+
+replace go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.43.0 => go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.46.0
+
+replace go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.43.0 => go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.46.0
+
+replace github.com/grpc-ecosystem/grpc-gateway/v2 v2.28.0 => github.com/grpc-ecosystem/grpc-gateway/v2 v2.30.0
