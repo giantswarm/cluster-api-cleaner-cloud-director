@@ -73,7 +73,7 @@ func run(m *testing.M) int {
 		Scheme: testScheme,
 		CRDDirectoryPaths: []string{
 			filepath.Join(capvcdDir, "config", "crd", "bases", "infrastructure.cluster.x-k8s.io_vcdclusters.yaml"),
-			filepath.Join(capiDir, "config", "crd", "bases", "cluster.x-k8s.io_clusters.yaml"),
+			filepath.Join(capiDir, "core", "config", "crd", "bases", "cluster.x-k8s.io_clusters.yaml"),
 		},
 		ErrorIfCRDPathMissing: true,
 	}
