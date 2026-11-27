@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bump Kubernetes libraries to v0.36.2, controller-runtime to v0.24.1 and cluster-api to v1.13.4 (Go 1.26). Pins CAPVCD to a patched giantswarm fork so its archived webhook/api code compiles against the new controller-runtime and cluster-api API layout.
 - Run integration tests in CI.
 - Update architect to v10.12.2 (giantswarm/cluster-api-cleaner-cloud-director#196)
+- Update architect to v10.18.0 (giantswarm/cluster-api-cleaner-cloud-director#222)
 
 ### Removed
 
